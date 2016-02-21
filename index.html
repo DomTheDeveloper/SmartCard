@@ -53,7 +53,25 @@
 $( document ).ready(function() {
 			$("#fail").hide();
 			$("#pass").hide();
+			
+			    require(['account'], function (account) {
+        var apikey = 'eacbc18c16dada73517937943a206f44';
+        fillBalance(apikey, account);
+        });
 });
+
+
+function fillBalance(apikey, account, purchase, transfer, purchaseAmt, description) {
+	var j = jQuery.noConflict();
+
+    var custAccounts = account.initWithKey(apikey);
+	var checkingAcctId = "56c8d9c2061b2d440baf43af";
+	
+	var checkingAcct = custAccounts.getAccountById(checkingAcctId);
+	var checkingAcctBalance = checkingAcct.balance;
+	$("#bankBalance").html("$" + checkingAcctBalance);
+}
+
 // bool purchaseAllowed = (balance >= purchaseAmt)
 
 // if (purchaseAllowed){
@@ -65,12 +83,14 @@ $( document ).ready(function() {
 function sendText(success,bankAmt,purchaseAmt){
 		var text;
 		if (success){
-			text = "Congrats! You just charged $" + purchaseAmt + " to your account! Your bank balance is $" + (bankAmt - purchaseAmt); 
+			text = "Congrats! You just charged $" + purchaseAmt + " to your account! Your bank balance is $" + (bankAmt - purchaseAmt) + "."; 
+			$("#bankBalance").html("$" + (bankAmt - purchaseAmt));
 			$("#pass span").html(text);
 			$("#fail").hide();
 			$("#pass").show();
 		} else {
-			text = "Sorry! You do not have the allocated funds to charge $" + purchaseAmt + ". Your bank balance is $" + bankAmt;
+			text = "Sorry! You do not have the allocated funds to charge $" + purchaseAmt + ". Your bank balance is $" + bankAmt + ".";
+			$("#bankBalance").html("$" + (bankAmt));
 			$("#fail").show();
 			$("#pass").hide();
 			$("#fail span").html(text);
@@ -461,7 +481,7 @@ function makePurchase(purchaseAmt, description){
               <div class="small-box bg-aqua">
                 <div class="inner">
                   <h3>Bank Account Balance</h3>
-                  <p>$2500</p>
+                  <p id="bankBalance">$2500</p>
                 </div>
                 <a href="#" class="small-box-footer">Account Settings <i class="fa fa-arrow-circle-right"></i></a>
               </div>
@@ -481,7 +501,7 @@ function makePurchase(purchaseAmt, description){
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
-              <div class="small-box bg-green">
+              <div class="small-box bg-purple">
                 <div class="inner">
                   <h3>Bank Account Lower Limit</h3>
                   <p>$50</p>
@@ -494,7 +514,7 @@ function makePurchase(purchaseAmt, description){
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
-              <div class="small-box bg-green">
+              <div class="small-box bg-orange">
                 <div class="inner">
                   <h3>Weekly Spending Limit</h3>
                   <p>$500</p>
@@ -525,7 +545,7 @@ function makePurchase(purchaseAmt, description){
 						VIZIO 40" Class 1080p 120Hz Smart TV
 						</div>
 						<div>
-						$330
+						$7000
 						</div>
 						<div>
 							<button class="btn btn-sm btn-info btn-flat pull-left" type="button" onclick="makePurchase(330, 'VIZIO 40 Class 1080p 120Hz Smart TV')">
@@ -538,13 +558,13 @@ function makePurchase(purchaseAmt, description){
 							<img src="dist/img/lamp.jpg" style="width: auto; max-height:196px; max-width:274px; display:block;" />
 						</div>
 						<div>
-						Surya Harlow Table Lamp 
+						Surya Harlow Designer Lamp 
 						</div>
 						<div>
-							$830
+							$8000
 						</div>
 						<div>
-							<button class="btn btn-sm btn-info btn-flat pull-left" type="button" onclick="makePurchase(830, 'Surya Harlow Table Lamp')">
+							<button class="btn btn-sm btn-info btn-flat pull-left" type="button" onclick="makePurchase(8000, 'Surya Harlow Table Lamp')">
 							Buy
 							</button>
 						</div>
@@ -557,10 +577,10 @@ function makePurchase(purchaseAmt, description){
 						Radio Flyer EZ Fold Wagon
 						</div>
 						<div>
-						$160
+						$100
 						</div>
 						<div>
-							<button class="btn btn-sm btn-info btn-flat pull-left" type="button" onclick="makePurchase(160, 'Radio Flyer EZ Fold Wagon')">
+							<button class="btn btn-sm btn-info btn-flat pull-left" type="button" onclick="makePurchase(100, 'Radio Flyer EZ Fold Wagon')">
 							Buy
 							</button>
 						</div>
@@ -573,10 +593,10 @@ function makePurchase(purchaseAmt, description){
 						Dyson Cinetic Big Ball Vacuum
 						</div>
 						<div>
-						$550
+						$200
 						</div>
 						<div>
-							<button class="btn btn-sm btn-info btn-flat pull-left" type="button" onclick="makePurchase(550, 'Dyson Cinetic Big Ball Vacuum')">
+							<button class="btn btn-sm btn-info btn-flat pull-left" type="button" onclick="makePurchase(200, 'Dyson Cinetic Big Ball Vacuum')">
 							Buy
 							</button>
 						</div>
@@ -599,7 +619,6 @@ function makePurchase(purchaseAmt, description){
                           <th>Order ID</th>
                           <th>Item</th>
                           <th>Status</th>
-                          <th>Popularity</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -607,43 +626,36 @@ function makePurchase(purchaseAmt, description){
                           <td><a href="#">OR9842</a></td>
                           <td>Call of Duty IV</td>
                           <td><span class="label label-success">Shipped</span></td>
-                          <td><div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div></td>
                         </tr>
                         <tr>
                           <td><a href="#">OR1848</a></td>
                           <td>Samsung Smart TV</td>
                           <td><span class="label label-warning">Pending</span></td>
-                          <td><div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div></td>
                         </tr>
                         <tr>
                           <td><a href="#">OR7429</a></td>
                           <td>iPhone 6 Plus</td>
                           <td><span class="label label-danger">Delivered</span></td>
-                          <td><div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div></td>
                         </tr>
                         <tr>
                           <td><a href="#">OR7429</a></td>
                           <td>Samsung Smart TV</td>
                           <td><span class="label label-info">Processing</span></td>
-                          <td><div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div></td>
                         </tr>
                         <tr>
                           <td><a href="#">OR1848</a></td>
                           <td>Samsung Smart TV</td>
                           <td><span class="label label-warning">Pending</span></td>
-                          <td><div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div></td>
                         </tr>
                         <tr>
                           <td><a href="#">OR7429</a></td>
                           <td>iPhone 6 Plus</td>
                           <td><span class="label label-danger">Delivered</span></td>
-                          <td><div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div></td>
                         </tr>
                         <tr>
                           <td><a href="#">OR9842</a></td>
                           <td>Call of Duty IV</td>
                           <td><span class="label label-success">Shipped</span></td>
-                          <td><div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div></td>
                         </tr>
                       </tbody>
                     </table>
