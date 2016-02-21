@@ -29,16 +29,19 @@
 	margin: 0 auto;
 	color: black;
 	}
-	.table-div {
+	.table-div, .bg-hack {
 	background-color:rgb(220,220,220);
 	border-radius:10px;
+	}
+	.solution {
+	padding-bottom:40px;
 	}
 </style>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>AdminLTE 2 | Dashboard</title>
+		<title>SmartCard MiddleWare</title>
 		<!-- Tell the browser to be responsive to screen width -->
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<!-- Bootstrap 3.3.5 -->
@@ -51,7 +54,7 @@
 		<link rel="stylesheet" href="dist/css/AdminLTE.min.css">
 		<!-- AdminLTE Skins. Choose a skin from the css/skins
 		folder instead of downloading all of them to reduce the load. -->
-		<link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+		<link rel="stylesheet" href="dist/css/skins/all-skins.min.css">
 		<!-- iCheck -->
 		<link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
 		<!-- Morris chart -->
@@ -83,7 +86,7 @@
 				<!-- mini logo for sidebar mini 50x50 pixels -->
 				<span class="logo-mini"><b>A</b>LT</span>
 				<!-- logo for regular state and mobile devices -->
-				<span class="logo-lg"><b>Admin</b>LTE</span>
+	  			<span class="logo-lg"><b>Smart</b>Card</span>
 			</a>
 			<!-- Header Navbar: style can be found in header.less -->
 			<nav class="navbar navbar-static-top" role="navigation">
@@ -340,24 +343,14 @@
 					<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 				</div>
 			</div>
-			<!-- search form -->
-			<form action="#" method="get" class="sidebar-form">
-				<div class="input-group">
-					<input type="text" name="q" class="form-control" placeholder="Search...">
-					<span class="input-group-btn">
-						<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-					</span>
-				</div>
-			</form>
-			<!-- /.search form -->
 			<!-- sidebar menu: : style can be found in sidebar.less -->
 			<ul class="sidebar-menu">
 				<li class="header">MAIN NAVIGATION</li>
+				<li class="active treeview"><a href="welcome.html"><i class="fa fa-circle-o"></i>Welcome</a></li>
 				<li class="treeview">
 				<a href="index.html">
 					<i class="fa fa-dashboard"></i> <span>Dashboard</span> 			</a>
 				</li>
-				<li class="active treeview"><a href="welcome.html"><i class="fa fa-circle-o"></i>Welcome</a></li>
 			</ul>
 			</section>
 			<!-- /.sidebar -->
@@ -375,11 +368,104 @@
 				<div class="problem container-fluid" style="text-align:center; padding-bottom:40px;">
 					<h1>The Problem:</h1>
 					<div class="col-md-6">
-						<table style="background-color:rgb(220,220,220);border-radius:10px;">
+						<div class="bg-hack">
+							<table style="background-color:rgb(220,220,220);border-radius:10px;">
+								<tr>
+									<td>
+										<span>
+											<i class="ion ion-card"></i>
+											<i class="ion ion-arrow-right-c"></i>
+											<i class="ion ion-ios-cart-outline"></i>
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p style="font-size:28px;">Credit Card Transaction</p>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>Build Credit</p>
+									</td>
+									<td>
+										<i class="ion ion-checkmark-circled"></i>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>Earn Rewards and Perks</p>
+									</td>
+									<td>
+										<i class="ion ion-checkmark-circled"></i>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>Penalty for Missed Bills</p>
+									</td>
+									<td>
+										<i class="ion ion-close-circled"></i>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>		
+					<div class="col-md-6">
+						<div class="bg-hack">
+							<table style="background-color:rgb(220,220,220);border-radius:10px;">
+								<tr>
+									<td>
+										<span>
+											<i class="ion ion-card"></i>
+											<i class="ion ion-arrow-right-c"></i>
+											<i class="ion ion-ios-cart-outline"></i>
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p style="font-size:28px;">Debit Card Transaction</p>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>No Interest</p>
+									</td>
+									<td>
+										<i class="ion ion-checkmark-circled"></i>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>Overdraft Fees</p>
+									</td>
+									<td>
+										<i class="ion ion-close-circled"></i>
+									</td>
+								</tr>	
+								<tr>
+									<td>
+										<p>Risk of Fraud</p>
+									</td>
+									<td>
+										<i class="ion ion-close-circled"></i>
+									</td>
+								</tr>	
+							</table>
+						</div>
+					</div>		
+				</div>
+				<div class="container-fluid solution" style="text-align:center;">
+					<h1>The Solution:</h1>
+					<div class="col-md-8 col-md-offset-2 table-div">
+						<table>
 							<tr>
 								<td>
 									<span>
-										<i class="ion ion-card"></i>
+										<img src="img/capsq.png" style="vertical-align:top;padding-top:4px;width:auto;height:90px;">
+										<i class="ion ion-arrow-right-c"></i>
+										<i class="ion ion-cube"></i>
 										<i class="ion ion-arrow-right-c"></i>
 										<i class="ion ion-ios-cart-outline"></i>
 									</span>
@@ -387,7 +473,7 @@
 							</tr>
 							<tr>
 								<td>
-									<p style="font-size:28px;">Credit Card Transaction</p>
+									<p style="font-size:28px; text-align:center;">SmartCard MiddleWare</p>
 								</td>
 							</tr>
 							<tr>
@@ -400,127 +486,39 @@
 							</tr>
 							<tr>
 								<td>
+									<p>No Debt, Interest, or Overdraft Fees</p>
+								</td>
+								<td>
+									<i class="ion ion-checkmark-circled"></i>
+								</td>
+							</tr>	
+							<tr>
+								<td>
 									<p>Earn Rewards and Perks</p>
 								</td>
 								<td>
 									<i class="ion ion-checkmark-circled"></i>
 								</td>
-							</tr>
+							</tr>	
 							<tr>
 								<td>
-									<p>Penalty for Missed Bills</p>
-								</td>
-								<td>
-									<i class="ion ion-close-circled"></i>
-								</td>
-							</tr>
-						</table>
-					</div>		
-					<div class="col-md-6">
-						<table style="background-color:rgb(220,220,220);border-radius:10px;">
-							<tr>
-								<td>
-									<span>
-										<i class="ion ion-card"></i>
-										<i class="ion ion-arrow-right-c"></i>
-										<i class="ion ion-ios-cart-outline"></i>
-									</span>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p style="font-size:28px;">Debit Card Transaction</p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p>No Interest</p>
+									<p>Fraud Protection</p>
 								</td>
 								<td>
 									<i class="ion ion-checkmark-circled"></i>
 								</td>
-							</tr>
-							<tr>
-								<td>
-									<p>Overdraft Fees</p>
-								</td>
-								<td>
-									<i class="ion ion-close-circled"></i>
-								</td>
-							</tr>	
-							<tr>
-								<td>
-									<p>Risk of Fraud</p>
-								</td>
-								<td>
-									<i class="ion ion-close-circled"></i>
-								</td>
 							</tr>	
 						</table>
-					</div>		
-				</div>
-				<div class="container-fluid solution" style="text-align:center;">
-					<h1>The Solution:</h1>
-					<div class="col-md-8 col-md-offset-2 table-div">
-					<table>
-						<tr>
-							<td>
-								<span>
-									<i class="ion ion-card"></i>
-									<i class="ion ion-arrow-right-c"></i>
-									<i class="ion ion-cube"></i>
-									<i class="ion ion-arrow-right-c"></i>
-									<i class="ion ion-ios-cart-outline"></i>
-								</span>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<p style="font-size:28px; text-align:center;">SmartCard MiddleWare</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<p>Build Credit</p>
-							</td>
-							<td>
-								<i class="ion ion-checkmark-circled"></i>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<p>No Debt, Interest, or Overdraft Fees</p>
-							</td>
-							<td>
-								<i class="ion ion-checkmark-circled"></i>
-							</td>
-						</tr>	
-						<tr>
-							<td>
-								<p>Earn Rewards and Perks</p>
-							</td>
-							<td>
-								<i class="ion ion-checkmark-circled"></i>
-							</td>
-						</tr>	
-						<tr>
-							<td>
-								<p>Fraud Protection</p>
-							</td>
-							<td>
-								<i class="ion ion-checkmark-circled"></i>
-							</td>
-						</tr>	
-					</table>
-				</div>
+					</div>
 				</div>
 			</div><!-- /.content-wrapper -->
 
 			<footer class="main-footer">
 			<div class="pull-right hidden-xs">
-				<b>Version</b> 2.3.0
+				<b>Version</b> 1.0
 			</div>
-			<strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+			<strong>Copyright &copy; 2016 SmartCard MiddleWare.</strong> All rights reserved.
+			<br />Made with &lt;3 at <a href="http://www.mhacks.org/">MHacks: Refactor</a>.
 			</footer>
 
 			<!-- Control Sidebar -->
